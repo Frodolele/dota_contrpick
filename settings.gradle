@@ -1,0 +1,4 @@
+rootProject.name='ContrPickDota2'
+include ':app'
+include ':domain'
+include ':data'
