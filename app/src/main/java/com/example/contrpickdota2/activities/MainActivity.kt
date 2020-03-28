@@ -1,7 +1,8 @@
-package com.example.contrpickdota2
+package com.example.contrpickdota2.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.contrpickdota2.R
 
 class MainActivity : AppCompatActivity() {
 
