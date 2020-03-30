@@ -1,12 +1,11 @@
 package com.example.contrpickdota2.activities
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.view.View
 import com.example.contrpickdota2.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.contrpickdota2.adapters.HeroAdapter
-import com.example.contrpickdota2.models.Hero
+import com.example.domain.models.Hero
 import com.example.contrpickdota2.presenters.HeroListPresenter
 import com.example.contrpickdota2.views.HeroListView
 import kotlinx.android.synthetic.main.activity_main.*

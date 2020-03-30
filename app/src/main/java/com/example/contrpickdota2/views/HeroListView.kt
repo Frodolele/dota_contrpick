@@ -1,6 +1,6 @@
 package com.example.contrpickdota2.views
 
-import com.example.contrpickdota2.models.Hero
+import com.example.domain.models.Hero
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy
 import moxy.viewstate.strategy.StateStrategyType

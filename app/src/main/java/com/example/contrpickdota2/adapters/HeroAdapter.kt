@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contrpickdota2.R
-import com.example.contrpickdota2.models.Hero
+import com.example.domain.models.Hero
 import java.util.*
 
 class HeroAdapter: RecyclerView.Adapter<HeroAdapter.ViewHolder>() {
