@@ -1,15 +1,13 @@
 package com.example.domain.repositories.implementations
 
 import com.example.domain.models.Hero
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
+import kotlinx.coroutines.*
 
 // communicate with back and data base
 
 class HeroRepositoryImpl {
 
-    suspend fun fetchHeroes(): Deferred<List<Hero>> {
+    fun fetchHeroes(): Deferred<List<Hero>> {
         Thread.sleep(3000)
 
         val mockData = ArrayList<Hero>()
@@ -38,6 +36,6 @@ class HeroRepositoryImpl {
             )
         )
 
-        return GlobalScope.async{ mockData }
+        return GlobalScope.async { mockData }
     }
 }

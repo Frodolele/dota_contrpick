@@ -1,7 +1,5 @@
 package com.example.contrpickdota2.presenters
 
-import android.os.Handler
-import com.example.domain.models.Hero
 import com.example.contrpickdota2.views.HeroListView
 import com.example.domain.repositories.implementations.HeroRepositoryImpl
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +9,6 @@ import kotlinx.coroutines.withContext
 import moxy.InjectViewState
 import moxy.MvpPresenter
 import java.lang.Exception
-import kotlin.concurrent.thread
 
 @InjectViewState
 class HeroListPresenter: MvpPresenter<HeroListView>() {
