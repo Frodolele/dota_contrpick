@@ -1,41 +1,26 @@
 package com.example.domain.repositories.implementations
 
+import com.example.domain.converters.HeroConverterImpl
 import com.example.domain.models.Hero
 import kotlinx.coroutines.*
+import remote.models.HeroApi
+import remote.providers.HeroProviderImpl
+import java.lang.Exception
 
 // communicate with back and data base
 
-class HeroRepositoryImpl {
+class HeroRepositoryImpl(private val heroConverter: HeroConverterImpl) {
+    private val heroProvider: HeroProviderImpl = HeroProviderImpl()
 
-    fun fetchHeroes(): Deferred<List<Hero>> {
-        Thread.sleep(3000)
+    suspend fun fetchHeroes(): Deferred<List<Hero>> {
+        return try {
+            val heroes: List<HeroApi> = heroProvider.getHeroesList().await()
+            GlobalScope.async {
+                heroes.map { hero -> heroConverter.fromApiToUI(model = hero)}
+            }
 
-        val mockData = ArrayList<Hero>()
-        mockData.add(
-            Hero(
-                id = 0,
-                title = "Anti-Mage",
-                icon = "",
-                attackType = 0
-            )
-        )
-        mockData.add(
-            Hero(
-                id = 1,
-                title = "Dark Willow",
-                icon = "",
-                attackType = 1
-            )
-        )
-        mockData.add(
-            Hero(
-                id = 2,
-                title = "Lion",
-                icon = "",
-                attackType = 1
-            )
-        )
-
-        return GlobalScope.async { mockData }
+        } catch (e: Exception){
+            GlobalScope.async { error(e) }
+        }
     }
 }
